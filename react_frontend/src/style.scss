@@ -1,0 +1,40 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,600);
+
+$theme-colors: (
+  primary: #edfbf1,
+  secondary: #1a1a1a,
+  secondary-hover: #9b9b9b,
+  text-main: #ffffff,
+  text-contrast: #ffffff,
+  header-big-block: whitesmoke,
+  header-narrow-block: #00f596,
+);
+
+@function theme-color($key) {
+  @return map-get($theme-colors, $key);
+}
+
+@import './components/components_style';
+
+.app {
+  text-align: center;
+  height: 100vh;
+  width: 100%;
+  background: linear-gradient(to bottom, rgba(53, 64, 142, 20)20%, rgba(180, 149, 9, 0.9), rgb(245, 245, 245));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.content {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+  width: 900px;
+}
+
+body {
+  font-family: 'Signifer-Light', sans-serif;
+}

@@ -1,0 +1,269 @@
+/* ==== Header.tsx ==== */
+
+.app-header {
+  display: flex;
+  flex-direction: column;
+  height: 10%;
+  width: 900px;
+  background-color: rgb(53, 64, 142);
+  border-bottom: 5px solid rgb(255, 212, 28);
+
+  &__main {
+    display: flex;
+    align-items: flex-end;
+    width: 100%;
+    color: theme-color(text-contrast);
+
+    p {
+      color: theme-color(header-big-block);
+      width: 100%;
+      text-align: center;
+      margin: 0;
+      font-size: 50px;
+      font-weight: 1000;
+      padding-bottom: 3px;
+    }
+  }
+
+  &__sub {
+    display: flex;
+    align-items: flex-end;
+    width: 75%;
+    color: theme-color(text-main);
+
+    div {
+      display: flex;
+      align-items: flex-end;
+      padding-left: 25px;
+      width: 100%;
+      height: 50px;
+      background-color: theme-color(header-narrow-block);
+
+      p {
+        text-align: left;
+        margin: 0;
+        font-size: 25px;
+        font-weight: 400;
+        padding-bottom: 5px;
+        letter-spacing: 3px;
+      }
+    }
+  }
+}
+
+/* ==== DocumentViewer.tsx ==== */
+
+.document-tools {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 50%;
+}
+
+.viewer {
+  background-color: #ffffff;
+  height: calc(50vh - 10px);
+  color: #31708f;
+  overflow: auto;
+  border-radius: 5px;
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 5px;
+
+    &__item {
+      border-bottom: 1px solid theme-color(text-main);
+      height: 75px;
+      overflow: hidden;
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      &:first-child {
+        height: 40px;
+        border-bottom: 1px solid theme-color(text-main);
+      }
+    }
+
+    &__header,
+    &__title {
+      font-size: 25px;
+      margin: 0;
+    }
+
+    &__text {
+      font-size: 12px;
+      margin: 0;
+      padding: 3px 0px;
+    }
+  }
+}
+
+/* ==== DocumentUploader.tsx ==== */
+
+.uploader {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  height: 150px;
+  gap: 5px;
+
+  &__input {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+  }
+
+  &__label {
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #31708f;
+    background-color: #ffffff;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+    width: 100%;
+    height: 40px;
+
+    svg {
+      height: 16px;
+      margin-right: 4px;
+    }
+
+    &:hover {
+      background-color: rgb(224, 216, 216);
+    }
+  }
+
+  &__details {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    height: 40px;
+    text-align: left;
+    overflow: hidden;
+    border-radius: 5px;
+    background-color: #ffffff;
+
+    p {
+      background-color: #ffffff;
+      color: #31708f;
+      text-align: center;
+      font-size: 15px;
+      padding: 5px;
+      width: 100%;
+      width: 450px;
+    }
+  }
+
+  &__btn {
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #31708f;
+    padding: 5px 8px;
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.25);
+    width: 100px;
+    border: none;
+    align-self: center;
+  }
+
+  &__loader {
+    align-self: center;
+  }
+}
+
+/* ==== IndexQuery.tsx ==== */
+
+.query {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  gap: 15px;
+
+  &__input {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    color: #31708f;
+    background-color: #ffffff;
+    border-radius: 5px;
+    padding: 14px;
+  }
+
+  &__loader {
+    align-self: center;
+    opacity: 0;
+    transition: opacity 300ms linear;
+
+    &--loading {
+      opacity: 1;
+    }
+  }
+
+  &__results,
+  &__sources {
+    opacity: 1;
+    transition: opacity 300ms linear;
+    background-color: #ffffff;
+    color: #31708f;
+    border-radius: 5px;
+    font-size: 15px;
+    padding: 5px;
+    overflow-x: auto;
+    overflow-y: auto;
+
+    &--loading {
+      opacity: 0;
+    }
+
+    &__item {
+      margin: 0;
+      width: 100%;
+      border-bottom: 1px solid theme-color(text-main);
+
+      &:first-child {
+        height: 40px;
+        border-bottom: 1px solid theme-color(text-main);
+        text-align: center;
+        margin-bottom: 5px;
+      }
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      &__id,
+      &__text {
+        font-size: 12px;
+        margin: 0;
+        margin-bottom: 3px;
+      }
+
+      &__id {
+        font-size: 25px;
+        margin-top: 0;
+      }
+
+      &__footer {
+        font-size: 10px;
+        margin: 0;
+      }
+    }
+  }
+}
